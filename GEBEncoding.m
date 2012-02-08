@@ -188,7 +188,7 @@ typedef struct {
 	data->offset++;
 	
 	[decodedValue appendBytes:data->bytes + data->offset length:[dataLength integerValue]];
-	
+	[decodedValue increaseLengthBy:1];
 	data->offset += [dataLength integerValue]; // Always move the offset off the end of the encoded item.
 
 	BOOL isUTF8String = ((data->typeAdvisor != nil) && data->typeAdvisor(data->keyStack) == GEBEncodedStringType);
